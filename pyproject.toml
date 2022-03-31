@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "poetry-demo"
+name = "tempconv"
 version = "0.1.0"
 description = ""
 authors = ["xofbd <dfox09@gmail.com>"]
