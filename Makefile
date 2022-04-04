@@ -22,9 +22,6 @@ poetry.lock: pyproject.toml
 	poetry lock
 	touch $@
 
-requirements.txt: poetry.lock
-	$(POETRY_EXPORT) -o $@
-
 requirements-dev.txt: poetry.lock
 	$(POETRY_EXPORT) --dev -o $@
 
