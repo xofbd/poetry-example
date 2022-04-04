@@ -2,7 +2,8 @@
 name = "tempconv"
 version = "0.1.0"
 description = ""
-authors = ["xofbd <dfox09@gmail.com>"]
+authors = ["Don Bruce Fox <dfox09@gmail.com>"]
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
