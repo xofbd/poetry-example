@@ -8,7 +8,7 @@ from tempconv import (
 )
 
 
-@pytest.mark.parametrize('deg_F,deg_C', [(-40, -40), (32, 0), (212, 100)])
+@pytest.mark.parametrize("deg_F,deg_C", [(-40, -40), (32, 0), (212, 100)])
 def test_fahrenheit_to_celsius(deg_F, deg_C):
     """
     GIVEN a temperature in Fahrenheit
@@ -19,7 +19,7 @@ def test_fahrenheit_to_celsius(deg_F, deg_C):
     assert deg_C == fahrenheit_to_celsius(deg_F)
 
 
-@pytest.mark.parametrize('deg_C,deg_F', [(-40, -40), (0, 32), (100, 212)])
+@pytest.mark.parametrize("deg_C,deg_F", [(-40, -40), (0, 32), (100, 212)])
 def test_celsius_to_fahrenheit(deg_C, deg_F):
     """
     GIVEN a temperature in Celsius
@@ -29,7 +29,7 @@ def test_celsius_to_fahrenheit(deg_C, deg_F):
     assert deg_F == celsius_to_fahrenheit(deg_C)
 
 
-@pytest.mark.parametrize('deg_C,temp_kelvin', [
+@pytest.mark.parametrize("deg_C,temp_kelvin", [
     (-273.15, 0),
     (0, 273.15),
     (100, 373.15)
@@ -43,7 +43,7 @@ def test_celsius_to_kelvin(deg_C, temp_kelvin):
     assert temp_kelvin == celsius_to_kelvin(deg_C)
 
 
-@pytest.mark.parametrize('deg_F,temp_kelvin', [
+@pytest.mark.parametrize("deg_F,temp_kelvin", [
     (-459.67, 0),
     (32, 273.15),
     (212, 373.15)
