@@ -1,6 +1,6 @@
 import pytest
 
-from tempconv.conversions import (
+from tempconv import (
     celsius_to_fahrenheit,
     celsius_to_kelvin,
     fahrenheit_to_celsius,
