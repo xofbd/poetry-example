@@ -1,6 +1,27 @@
 POETRY_EXPORT := poetry export --without-hashes -f requirements.txt
+POETRY_RUN := poetry run
+SHELL := /bin/bash
 
-# Requirements
+# Installing
+.make.install: poetry.lock
+	poetry install --no-dev
+	touch $@
+
+.PHONY: install
+install: .make.install
+
+.make.install-dev: poetry.lock
+	poetry install
+	touch $@
+
+.PHONY: install-dev
+install-dev: .make.install-dev
+
+# Virtual environment
+poetry.lock: pyproject.toml
+	poetry lock
+	touch $@
+
 requirements.txt: poetry.lock
 	$(POETRY_EXPORT) -o $@
 
@@ -9,12 +30,12 @@ requirements-dev.txt: poetry.lock
 
 # Testing
 .PHONY: test-lint
-test-lint:
-	-poetry run flake8
+test-lint: | .make.install-dev
+	$(POETRY_RUN) flake8
 
 .PHONY: test-unit
-test-unit:
-	-poetry run pytest -s
+test-unit: | .make.install-dev
+	$(POETRY_RUN) pytest -s
 
 .PHONY: tests
 tests: test-lint test-unit
@@ -23,3 +44,4 @@ tests: test-lint test-unit
 .PHONY: clean
 clean:
 	find . | grep [py]cache | xargs rm -rf
+	rm -f .make.*
