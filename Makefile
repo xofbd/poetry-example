@@ -37,8 +37,13 @@ test-unit: | .make.install-dev
 .PHONY: tests
 tests: test-lint test-unit
 
+.PHONY: tox
+tox: | .make.install-dev
+	$(POETRY_RUN) tox
+
 # Utilities
 .PHONY: clean
 clean:
 	find . | grep [py]cache | xargs rm -rf
 	rm -f .make.*
+	rm -rf .tox
