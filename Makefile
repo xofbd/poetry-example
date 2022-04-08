@@ -32,7 +32,7 @@ test-lint: | .make.install-dev
 
 .PHONY: test-unit
 test-unit: | .make.install-dev
-	$(POETRY_RUN) pytest -s
+	$(POETRY_RUN) pytest -s --cov=tempconv --cov-report=term --cov-report=xml
 
 .PHONY: tests
 tests: test-lint test-unit
@@ -45,5 +45,5 @@ tox: | .make.install-dev
 .PHONY: clean
 clean:
 	find . | grep [py]cache | xargs rm -rf
-	rm -f .make.*
+	rm -f .coverage coverage.xml .make.*
 	rm -rf .tox
