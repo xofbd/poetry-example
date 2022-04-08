@@ -2,6 +2,9 @@ POETRY_EXPORT := poetry export --without-hashes -f requirements.txt
 POETRY_RUN := poetry run
 SHELL := /bin/bash
 
+.PHONY: all
+all: clean install
+
 # Installing
 .make.install: poetry.lock
 	poetry install --no-dev
